@@ -54,6 +54,38 @@ export default function Content() {
               </div>
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="recipe-card mb-4">
+              <img
+                src="https://www.divinacocina.es/wp-content/uploads/2014/06/pisto-de-verduras-con-huevo-c1.jpg"
+                alt="Pisto de verduras con huevo"
+                className="img-fluid mb-2"
+              />
+              <h4 className="recipe-title">
+                <a href="#">Pisto de verduras con huevo</a>
+              </h4>
+              <div className="rating">
+                <span className="stars">★★★★★</span>
+                <span className="views">Basado en 3 opiniones</span>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="recipe-card mb-4">
+              <img
+                src="https://www.divinacocina.es/wp-content/uploads/2025/01/empanadillas-de-jamon-y-mozzarella-en-airfryer-585x585.jpg"
+                alt="Empanadillas de mozzarella y tomate seco en freidora de aire"
+                className="img-fluid mb-2"
+              />
+              <h4 className="recipe-title">
+                <a href="#">Empanadillas de mozzarella y tomate seco en freidora de aire</a>
+              </h4>
+              <div className="rating">
+                <span className="stars">★★★★★</span>
+                <span className="views">Basado en 3 opiniones</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

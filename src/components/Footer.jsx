@@ -1,3 +1,7 @@
+import React from 'react';
+
+
+
 function Footer() {
   return (
     <footer className="bg-dark text-white mt-5">
@@ -5,28 +9,29 @@ function Footer() {
         <div className="row">
           <div className="col-12 text-center">
             {/* iconos */}
-            <div className="social-icons mb-3">
-              <a href="#" className="text-white mx-2">
+            <div className="social-icons mb-4">
+              <a href="#" className="text-white mx-3 social-icon" aria-label="Facebook">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="text-white mx-2">
+              <a href="#" className="text-white mx-3 social-icon" aria-label="Twitter">
                 <i className="bi bi-twitter"></i>
               </a>
-              <a href="#" className="text-white mx-2">
+              <a href="#" className="text-white mx-3 social-icon" aria-label="Instagram">
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="#" className="text-white mx-2">
+              <a href="#" className="text-white mx-3 social-icon" aria-label="Pinterest">
                 <i className="bi bi-pinterest"></i>
               </a>
-              <a href="#" className="text-white mx-2">
+              <a href="#" className="text-white mx-3 social-icon" aria-label="YouTube">
                 <i className="bi bi-youtube"></i>
               </a>
-              <a href="#" className="text-white mx-2">
+              <a href="#" className="text-white mx-3 social-icon" aria-label="Email">
                 <i className="bi bi-envelope"></i>
               </a>
             </div>
 
-            <div className="copyright mb-2">
+            {/* Copyright y enlaces */}
+            <div className="copyright mb-3">
               <p>
                 © Divina Cocina 2024 -{" "}
                 <a href="#" className="text-orange">
@@ -51,6 +56,7 @@ function Footer() {
               </p>
             </div>
 
+            {/* Texto de powered by */}
             <div className="powered-by">
               <small>Creado por MaCaIs</small>
             </div>

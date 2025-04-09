@@ -17,38 +17,126 @@ export default function Navigation() {
           <ul className="navbar-nav w-100 justify-content-between">
             <li className="nav-item">
               <a className="nav-link" href="#">
-                {" "}
-                INICIO{" "}
+                INICIO
+              </a>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                CATEGORIAS
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    FREIDORA DE AIRE
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    ENSALADAS Y ALIÑOS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    ENTRADAS Y TAPAS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    MASAS Y PANES
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    ARROCES
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    PASTAS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    HUEVOS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    SOPAS Y CREMAS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    VERDURAS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    LEGUMBRES Y COCIDOS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    PESCADOS Y MARISCOS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    CARNE
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    POLLO Y AVES
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    SALSAS Y GUARNICIONES
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    POSTRES
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    BEBIDAS
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    DESAYUNOS
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                RECETAS PARA FREIDORAS
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                {" "}
-                CATEGORIAS{" "}
+                BLOG
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                {" "}
-                RECETAS PARA FREIDORAS{" "}
+                VIDEO RECETAS
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                {" "}
-                BLOG{" "}
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                {" "}
-                VIDEO RECETAS{" "}
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                {" "}
-                RECETAS TEMPORADAS{" "}
+                RECETAS TEMPORADAS
               </a>
             </li>
             <li className="nav-item">
