@@ -1,95 +1,5 @@
 export default function Content() {
   return (
-    <div className="row">
-      {/* título principal */}
-      <div className="col-lg-8">
-        <h2 className="main-title">DIVINA COCINA - RECETAS FÁCILES</h2>
-
-        <div className="featured-recipe mb-4">
-          <img
-            src="https://www.divinacocina.es/wp-content/uploads/2025/04/sepia-salteada-con-guisantes-c.jpg"
-            alt="Sepia salteada con guisantes y verduras"
-            className="img-fluid mb-2"
-          />
-          <h3 className="recipe-title">
-            <a href="#">Sepia salteada con guisantes y verduras</a>
-          </h3>
-          <div className="rating">
-            <span className="stars">★★★★★</span>
-            <span className="views">Basado en 4 opiniones</span>
-          </div>
-        </div>
-
-        {/* Recetas chiquitas */}
-        <div className="row smaller-recipes">
-          <div className="col-md-6">
-            <div className="recipe-card mb-4">
-              <img
-                src="https://www.divinacocina.es/wp-content/uploads/2025/03/gildas-caseras-de-anchoas-ccc.jpg"
-                alt="Todo sobre la gilda y recetas de gildas caseras"
-                className="img-fluid mb-2"
-              />
-              <h4 className="recipe-title">
-                <a href="#">Todo sobre la gilda y recetas de gildas caseras</a>
-              </h4>
-              <div className="rating">
-                <span className="stars">★★★★★</span>
-                <span className="views">Basado en 3 opiniones</span>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="recipe-card mb-4">
-              <img
-                src="https://www.divinacocina.es/wp-content/uploads/2025/03/salmon-a-la-naranja-o-mandarina-v.jpg"
-                alt="Salmón a la naranja (o mandarina)"
-                className="img-fluid mb-2"
-              />
-              <h4 className="recipe-title">
-                <a href="#">Salmón a la naranja (o mandarina)</a>
-              </h4>
-              <div className="rating">
-                <span className="stars">★★★★★</span>
-                <span className="views">Basado en 2 opiniones</span>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="recipe-card mb-4">
-              <img
-                src="https://www.divinacocina.es/wp-content/uploads/2014/06/pisto-de-verduras-con-huevo-c1.jpg"
-                alt="Pisto de verduras con huevo"
-                className="img-fluid mb-2"
-              />
-              <h4 className="recipe-title">
-                <a href="#">Pisto de verduras con huevo</a>
-              </h4>
-              <div className="rating">
-                <span className="stars">★★★★★</span>
-                <span className="views">Basado en 3 opiniones</span>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="recipe-card mb-4">
-              <img
-                src="https://www.divinacocina.es/wp-content/uploads/2025/01/empanadillas-de-jamon-y-mozzarella-en-airfryer-585x585.jpg"
-                alt="Empanadillas de mozzarella y tomate seco en freidora de aire"
-                className="img-fluid mb-2"
-              />
-              <h4 className="recipe-title">
-                <a href="#">Empanadillas de mozzarella y tomate seco en freidora de aire</a>
-              </h4>
-              <div className="rating">
-                <span className="stars">★★★★★</span>
-                <span className="views">Basado en 3 opiniones</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Sidebar */}
       <div className="col-lg-4">
         <div className="sidebar">
           <div className="category-box">
@@ -267,6 +177,5 @@ export default function Content() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
