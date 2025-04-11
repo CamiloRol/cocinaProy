@@ -5,10 +5,11 @@ import Content from "./components/Content";
 import Footer from "./components/Footer";
 import AditionalText from "./components/AditionalText";
 import Recipes from "./components/Recipes";
+import Carrousel from "./components/carrousel";
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       <Header />
       <Navigation />
       <div className="container mt-2">
@@ -16,14 +17,16 @@ function App() {
       <div className="row">
         <div className="col-lg-8">
         <h2 className="main-title">DIVINA COCINA - RECETAS FÁCILES</h2>
+        <Carrousel />
         <Recipes/>
-        </div>
+        </div> 
         <Content />
+        
       </div>
         <AditionalText />
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

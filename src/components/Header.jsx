@@ -11,7 +11,7 @@ export default function Header() {
             <a href="#" className="text-white me-2">
               <i className="bi bi-twitter"></i>
             </a>
-            <a href="#" className="text-white me-2">
+            <a href="#" className="text-white me-2">  
               <i className="bi bi-instagram"></i>
             </a>
             <a href="#" className="text-white me-2">
@@ -25,8 +25,8 @@ export default function Header() {
       </div>
       {/* Header principal */}
       <div className="container text-center py-3">
+        <img src="https://www.divinacocina.es/wp-content/uploads/2020/07/divina-cocina.png" alt="" />
         <br className="mt-5" />
-        <p className="tagline mt-5">Recetas sencillas para alegrarte la vida</p>
       </div>
     </>
   );

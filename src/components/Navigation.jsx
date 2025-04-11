@@ -124,10 +124,34 @@ export default function Navigation() {
                 RECETAS PARA FREIDORAS
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 BLOG
               </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    CUADERNO DE COCINA
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    IDEAS Y MENU
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    TRUCOS Y TECNICAS DE COCINA
+                  </a>
+                </li>
+              </ul>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
