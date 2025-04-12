@@ -98,14 +98,15 @@ body {
 /* Sidebar estilos */
 .category-box {
   margin-bottom: 1.5rem;
+  border-radius: 8px;
 }
 
 .category-title {
-  background-color: #333;
+  background-color: #d35400;
   color: white;
   font-size: 0.9rem;
   font-weight: bold;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
   margin-bottom: 0;
 }
 
@@ -113,7 +114,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd
 }
 
 .category-list li {
@@ -126,8 +127,8 @@ body {
 
 .category-list a {
   display: block;
-  padding: 0.5rem 1rem;
-  color: #333;
+  padding: 0.75rem 1.25rem;
+  color: #2c3e50;
   text-decoration: none;
   font-size: 0.8rem;
 }
@@ -135,6 +136,54 @@ body {
 .category-list a:hover {
   background-color: var(--light-gray);
   color: var(--orange);
+  padding-left: 1.5rem;
+}
+
+/*AditionalText*/
+
+.featured-categories mb-5{
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: rgb(0,0,0,0.8);
+}
+
+.category-main-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.intro-text strong {
+  color: #e67e22;
+}
+
+.category-button {
+  display: block;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #2c3e50;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.category-button:hover {
+  background-color: #e67e22;
+  color: white;
 }
 
 /* Footer estilos */
