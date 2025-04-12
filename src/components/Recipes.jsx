@@ -42,6 +42,27 @@ export default function Recipes() {
         "category": "Postres",
         "time": "35 min",
       },
+      {
+        "title": "Arroz de Sepia",
+        "description": "Arroz tradicional con sepia",
+        "image": "https://www.divinacocina.es/wp-content/uploads/2025/04/ensalada-de-sepia-vv-1.jpg",
+        "category": "Arroz",
+        "time": "35 min",
+      },
+      {
+        "title": "guiso de carcamusas de toledo",
+        "description": "Comida tradicional de cerdo cocinado con tomate , guisantes y picante",
+        "image": "https://www.divinacocina.es/wp-content/uploads/2025/03/carcamusas-toledanas-v.jpg",
+        "category": "Guisos",
+        "time": "35 min",
+      },
+      {
+        "title": "Acarpaccio de remolacha con burrata",
+        "description": "El carpaccio de remolacha,  inspirado en la tradición italiana del carpaccio pero con un giro vegetal",
+        "image": "https://www.divinacocina.es/wp-content/uploads/2017/06/carpaccio-de-remolacha-con-burrata.jpg",
+        "category": "Postres",
+        "time": "35 min",
+      }
     ]
   
     return (

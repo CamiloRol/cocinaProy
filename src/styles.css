@@ -12,8 +12,7 @@ body {
 }
 
 .app-container {
-  width: 70%;
-  margin: 0 auto;
+  width: 100%;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   padding: 20px;
   background-color: #fff;
@@ -43,9 +42,13 @@ body {
   font-size: 0.85rem;
   padding: 0.75rem 1rem;
 }
-
 .custom-nav .nav-link:hover {
   background-color: var(--light-gray);
+  color: #ff6633;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #ff6633; 
+  color: white; 
 }
 
 /* Information estilos */
