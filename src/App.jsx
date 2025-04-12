@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import AditionalText from "./components/AditionalText";
 import Recipes from "./components/Recipes";
 import Carrousel from "./components/carrousel";
+import Below from "./components/Below";
 
 function App() {
   return (
@@ -14,17 +15,17 @@ function App() {
       <Navigation />
       <div className="container mt-2">
         <Information />
-      <div className="row">
-        <div className="col-lg-8">
-        <h2 className="main-title">DIVINA COCINA - RECETAS FÁCILES</h2>
-        <Carrousel />
-        <Recipes/>
-        </div> 
-        <Content />
-        
-      </div>
+        <div className="row">
+          <div className="col-lg-8">
+            <h2 className="main-title">DIVINA COCINA - RECETAS FÁCILES</h2>
+            <Carrousel />
+            <Recipes />
+          </div>
+          <Content />
+        </div>
         <AditionalText />
       </div>
+      <Below />
       <Footer />
     </>
   );
