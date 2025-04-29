@@ -3,7 +3,11 @@ export default function Content() {
       <div className="col-lg-4">
         <div className="sidebar">
           <div className="category-box">
-            <h4 className="category-title">COCINA CASERA Y FAMILIAR</h4>
+            <h4 className="category-title">
+              <span className="inner-arrow">
+                COCINA CASERA Y FAMILIAR
+              </span>
+              </h4>
             <ul className="category-list">
               <li>
                 <a href="#">RECETAS CLÁSICAS</a>
