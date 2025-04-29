@@ -1,6 +1,7 @@
 export default function Recipes() {
     const recipes = [
       {
+        id: 1,
         "title": "Paella Valenciana",
         "description": "La auténtica receta tradicional de paella valenciana.",
         "image": "https://th.bing.com/th/id/R.b1cb3ad4d6dad2d04bc3f7c8a37ef662?rik=nn0z5fx6Uvfpog&pid=ImgRaw&r=0",
@@ -8,6 +9,7 @@ export default function Recipes() {
         "time": "45 min",
       },
       {
+        id: 2,
         "title": "Tortilla Española",
         "description": "Deliciosa tortilla de patatas al estilo tradicional.",
         "image": "https://th.bing.com/th/id/OIP.fOWRmQQgEhjueANMW8k7kgHaE8?rs=1&pid=ImgDetMain",
