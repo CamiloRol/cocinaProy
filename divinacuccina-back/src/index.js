@@ -18,7 +18,7 @@ app.use('/api/Recipes', recipesRoutes);
 //app.use('/api/reservas', reservasRoutes);
 //app.use('/api/pagos', pagosRoutes);
 
-const PORT = process.env.PORT || 3006;
+const PORT = process.env.PORT || 3306;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
