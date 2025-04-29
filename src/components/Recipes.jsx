@@ -48,7 +48,7 @@ export default function Recipes() {
         "title": "Arroz de Sepia",
         "description": "Arroz tradicional con sepia",
         "image": "https://www.divinacocina.es/wp-content/uploads/2025/04/ensalada-de-sepia-vv-1.jpg",
-        "category": "Arroz",
+        "category": "Plato pr",
         "time": "35 min",
       },
       {
