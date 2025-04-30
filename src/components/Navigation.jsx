@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 export default function Navigation() {
   return (
@@ -15,10 +16,10 @@ export default function Navigation() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav w-100 justify-content-between">
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+          <li className="nav-item">
+              <Link className="nav-link" to="/">
                 INICIO
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -154,14 +155,19 @@ export default function Navigation() {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                VIDEO RECETAS
-              </a>
+              <Link className="nav-link" to="/Recipes">
+                RECETAS
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                RECETAS TEMPORADAS
-              </a>
+              <Link className="nav-link" to="/About">
+                ABOUT US
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Contact">
+                CONTACTO
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
