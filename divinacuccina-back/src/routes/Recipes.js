@@ -24,8 +24,8 @@ router.get('/', async (req, res) => {
 
     res.json(recipesWithPic);
   } catch (error) {
-    console.error('Error to GET /Recipes:', error);
-    res.status(500).json({ error: 'Error to GET Recipes' });
+    console.error('Error to GET /recipes:', error.message);
+    res.status(500).json({ error: 'Error to GET recipes' });
   }
 });
 
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
       imagenes: images.map(img => img.url_imagen)
     });
   } catch (error) {
-    console.error('Error to GET /Recipes:', error);
+    console.error('Error to GET /recipes:', error);
     res.status(500).json({ error: 'Error to GET Recipes' });
   }
 });
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
   const { name_recipe, tipo, description, price, time, status } = req.body;
   try {
     const [result] = await db.query(
-      'INSERT INTO habitaciones (name_recipe, tipo, description, price, time, status) VALUES (?, ?, ?, ?, ?, ?)',
+      'INSERT INTO recipes (name_recipe, tipo, description, price, time, status) VALUES (?, ?, ?, ?, ?, ?)',
       [name_recipe, tipo, description, price, time, status]
     );
     res.json({ id: result.insertId, message: 'Recipe successfully created' });
