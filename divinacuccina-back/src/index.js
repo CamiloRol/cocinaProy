@@ -3,7 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Importar rutas
-const recipesRoutes = require('./routes/Recipes');
+const recipesRoutes = require('./routes/recipes');
 //const usuariosRoutes = require('./src/routes/usuarios');
 //const reservasRoutes = require('./src/routes/reservas');
 //const pagosRoutes = require('./src/routes/pagos');
@@ -18,7 +18,7 @@ app.use('/api/Recipes', recipesRoutes);
 //app.use('/api/reservas', reservasRoutes);
 //app.use('/api/pagos', pagosRoutes);
 
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

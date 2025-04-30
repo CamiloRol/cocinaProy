@@ -1,11 +1,11 @@
 ###peticion get - todas las Recetas
-get http://localhost:3306/api/Recipes
+get http://localhost:3000/api/recipes
 
 ###peticion get - una Receta con sus imagenes
-get http://localhost:3306/api/Recipes/:3
+get http://localhost:3000/api/recipes/3
 
 ###peticion post - crear una Receta
-Post http://localhost:3306/api/Recipes
+Post http://localhost:3000/api/recipes
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###peticion put - Actualizar una Receta
-Put http://localhost:3306/api/Recipes/1
+Put http://localhost:3000/api/recipes/1
 Content-Type: application/json
 
 {
@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ###peticion delete - eliminar una Receta
-DELETE http://localhost:3306/api/habitaciones/1
+DELETE http://localhost:3000/api/recipes/1
 Content-Type: application/json
 
 {
