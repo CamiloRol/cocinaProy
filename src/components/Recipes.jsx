@@ -7,6 +7,7 @@ export default function Recipes() {
     apiRecipesAll();
   }, []);
 
+
   async function apiRecipesAll() {
     const url = "http://localhost:3000/api/recipes";
     try {
