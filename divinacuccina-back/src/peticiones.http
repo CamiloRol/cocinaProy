@@ -1,0 +1,49 @@
+###peticion get - todas las Recetas
+get http://localhost:3306/api/Recipes
+
+###peticion get - una Receta con sus imagenes
+get http://localhost:3306/api/Recipes/:3
+
+###peticion post - crear una Receta
+Post http://localhost:3306/api/Recipes
+Content-Type: application/json
+
+{
+    "name_recipe": 303,
+    "tipo": "Room Deluxe",
+    "description": "Suite de lujo con jacuzzi y vista a la ciudad",
+    "price": 250.00,
+    "time": 2,
+    "status": "disponible" 
+}
+
+###peticion put - Actualizar una Receta
+Put http://localhost:3306/api/Recipes/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name_recipe": 303,
+    "tipo": "Room Deluxe",
+    "description": "Suite de lujo con jacuzzi y vista a la ciudad",
+    "price": 250.00,
+    "time": 2,
+    "status": "disponible" 
+}
+
+###peticion delete - eliminar una Receta
+DELETE http://localhost:3306/api/habitaciones/1
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###peticion post - verificar un usuario
+Post http://localhost/apiCrud/login
+Content-Type: application/json
+
+{
+    "usuario": "admin",
+    "contrasena": "admin12345"
+}
