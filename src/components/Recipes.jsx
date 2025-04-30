@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Recipes() {
+  const navigate = useNavigate()
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    apiRecipesAll();
+    apiRecipesAll().then(data=> {
+      if (data) setRecipes(data)
+    });
   }, []);
 
 
@@ -42,7 +46,7 @@ export default function Recipes() {
                 <p className="card-text">{recipe.description}</p>
                 <div className="d-flex justify-content-between align-items-center">
                   <small className="text-muted">⏱️ {recipe.time}</small>
-                  <button className="btn btn-outline-primary btn-sm" onClick={() => apiRecipe(recipe.id)}>
+                  <button className="btn btn-outline-primary btn-sm" onClick={() => navigate(`/recipes/${recipe.id}`)}>
                     Ver Receta
                   </button>
                 </div>
