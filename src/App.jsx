@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import RecipesPage from "./pages/RecipesPage";
 import RecipesDetails from "./pages/RecipesDetails";
+import './styles.css'; 
 
 function App() {
   return (
