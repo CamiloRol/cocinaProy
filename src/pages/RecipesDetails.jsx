@@ -1,4 +1,9 @@
 import { useParams } from "react-router-dom";
+import Header from "../components/Header";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import RecipeIndividual from "../components/RecipeIndividual";
+
 
 export default function RecipesDetails() {
   let { id } = useParams();
@@ -6,9 +11,11 @@ export default function RecipesDetails() {
 
 
   return (
-    <div>
-      <h1>Detalle de la receta</h1>
-      <h1>Receta {id}</h1>
-    </div>
+    <>
+      <Header/>
+      <Navigation/>
+      <RecipeIndividual/>
+      <Footer/>
+    </>
   )
 }

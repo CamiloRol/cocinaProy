@@ -22,20 +22,6 @@ export default function Recipes() {
     }
   }
 
-  async function apiRecipe(id) {
-    const url = `http://localhost:3000/api/recipes/${id}`;
-    try {
-      const respuesta = await fetch(url);
-      if (!respuesta.ok) throw new Error(`Error: ${respuesta.status}`);
-      const data = await respuesta.json();
-      console.log("Receta específica:", data);
-      localStorage.setItem("recipeSeleccionada", JSON.stringify(data));
-      // Aquí puedes redirigir a otra vista si estás usando React Router
-    } catch (error) {
-      console.error("Error al obtener receta:", error);
-    }
-  }
-
   return (
     <section className="my-5">
       <h2 className="text-center mb-4">Recetas Destacadas</h2>
