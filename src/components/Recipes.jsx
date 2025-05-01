@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Recipes() {
+  const navigate = useNavigate()
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    apiRecipesAll();
+    apiRecipesAll().then(data=> {
+      if (data) setRecipes(data)
+    });
   }, []);
 
 
@@ -20,20 +24,6 @@ export default function Recipes() {
       }
     } catch (error) {
       console.error("Error al obtener recetas:", error);
-    }
-  }
-
-  async function apiRecipe(id) {
-    const url = `http://localhost:3000/api/recipes/${id}`;
-    try {
-      const respuesta = await fetch(url);
-      if (!respuesta.ok) throw new Error(`Error: ${respuesta.status}`);
-      const data = await respuesta.json();
-      console.log("Receta específica:", data);
-      localStorage.setItem("recipeSeleccionada", JSON.stringify(data));
-      // Aquí puedes redirigir a otra vista si estás usando React Router
-    } catch (error) {
-      console.error("Error al obtener receta:", error);
     }
   }
 
@@ -56,7 +46,7 @@ export default function Recipes() {
                 <p className="card-text">{recipe.description}</p>
                 <div className="d-flex justify-content-between align-items-center">
                   <small className="text-muted">⏱️ {recipe.time}</small>
-                  <button className="btn btn-outline-primary btn-sm" onClick={() => apiRecipe(recipe.id)}>
+                  <button className="btn btn-outline-primary btn-sm" onClick={() => navigate(`/recipes/${recipe.id}`)}>
                     Ver Receta
                   </button>
                 </div>
