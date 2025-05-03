@@ -2,6 +2,7 @@ import AditionalText from "../components/AditionalText";
 import Header from "../components/Header";
 import Information from "../components/Information";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 export default function AboutPAge() {
   return (
@@ -10,6 +11,7 @@ export default function AboutPAge() {
       <Navigation/>
       <Information />
       <AditionalText />
+      <Footer/>
     </>
   )
 }

@@ -19,21 +19,43 @@ export default function RecipeIndividual() {
     fetchRecipe();
   }, [id]);
 
-  if (!recipe) return <p className="text-center">Cargando receta...</p>;
+  if (!recipe)
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <p className="text-muted fs-4">Cargando receta...</p>
+      </div>
+    );
 
   return (
-    <section className="container mt-5">
-      <h2>{recipe.name_recipe}</h2>
-      <p>{recipe.description}</p>
-      <p><strong>Tipo:</strong> {recipe.tipo}</p>
-      <p><strong>Precio:</strong> ${recipe.price}</p>
-      <p><strong>Tiempo:</strong> {recipe.time} min</p>
-      <div className="row">
-        {recipe.imagenes?.map((img, i) => (
-          <div key={i} className="col-md-4 mb-3">
-            <img src={img} className="img-fluid rounded" alt={`Imagen ${i}`} />
+    <section className="container py-5">
+      <div className="card mx-auto shadow-lg rounded" style={{ maxWidth: '800px' }}>
+        <div className="card-body">
+          <h2 className="card-title text-center text-success mb-3">{recipe.name_recipe}</h2>
+          <p className="card-text text-center text-secondary mb-4">{recipe.description}</p>
+          <div className="row text-center mb-4">
+            <div className="col-md-4 mb-2">
+              <strong className="text-success">Tipo:</strong> {recipe.tipo}
+            </div>
+            <div className="col-md-4 mb-2">
+              <strong className="text-success">Precio:</strong> ${recipe.price}
+            </div>
+            <div className="col-md-4 mb-2">
+              <strong className="text-success">Tiempo:</strong> {recipe.time} min
+            </div>
           </div>
-        ))}
+          <div className="row">
+            {recipe.imagenes?.map((img, i) => (
+              <div key={i} className="col-md-6 mb-3">
+                <img
+                  src={img}
+                  alt={`Imagen ${i}`}
+                  className="img-fluid rounded shadow-sm"
+                  style={{ objectFit: "cover", height: "250px", width: "100%" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

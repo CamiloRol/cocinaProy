@@ -21,7 +21,7 @@ export default function Navigation() {
                 INICIO
               </Link>
             </li>
-            <li className="nav-item dropdown">
+           {/*  <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -119,8 +119,8 @@ export default function Navigation() {
                   </a>
                 </li>
               </ul>
-            </li>
-            <li className="nav-item">
+            </li> */}
+           {/*  <li className="nav-item">
               <a className="nav-link" href="#">
                 RECETAS PARA FREIDORAS
               </a>
@@ -153,7 +153,7 @@ export default function Navigation() {
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link" to="/Recipes">
                 RECETAS
