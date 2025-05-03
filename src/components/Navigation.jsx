@@ -170,9 +170,9 @@ export default function Navigation() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to={"/Search"} className="nav-link" href="#">
                 <i className="bi bi-search"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
