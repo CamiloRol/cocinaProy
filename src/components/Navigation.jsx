@@ -2,34 +2,31 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 
 export default function Navigation() {
-  const [showSearch, setShowSearch] = useState(false);
-  const [search, setSearch] = useState("");
-  const [recipes, setRecipes] = useState([]);
 
   // Traer las recetas desde la base de datos
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users"); // Poner nuestra base de datos real
-        const data = await response.json();
-        setRecipes(data);
-      } catch (error) {
-        console.error("Error buscando receta:", error);
-      }
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch("https://jsonplaceholder.typicode.com/users"); // Poner nuestra base de datos real
+  //       const data = await response.json();
+  //       setRecipes(data);
+  //     } catch (error) {
+  //       console.error("Error buscando receta:", error);
+  //     }
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  const recetaFiltrada = recipes.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  // const recetaFiltrada = recipes.filter((item) =>
+  //   item.name.toLowerCase().includes(search.toLowerCase())
+  // );
 
 
-  const handleSearchClick = () => {
-    setShowSearch(!showSearch);
-    setSearch(""); // Limpiar el input 
-  };
+  // const handleSearchClick = () => {
+  //   setShowSearch(!showSearch);
+  //   setSearch(""); // Limpiar el input 
+  // };
 
 
   return (
@@ -200,39 +197,19 @@ export default function Navigation() {
               </Link>
             </li>
             <li className="nav-item">
-              <button onClick={handleSearchClick} className="nav-link nav-link btn btn-link p-0 border-0" href="#">
-                <i className="bi bi-search"></i>
-              </button>
+              <form
+                onSubmit = {(e) => {
+                  e.preventDefault();
+                  let receta = e.target.search.value;
+                  console.log("Buscando receta:", receta);
+                }}
+              >
+                <input type="text" autoComplete="off" name="search"/>
+                <button>🔍</button>
+              </form>
+              
             </li>
           </ul>
-
-          {/* Mostrar input solo si showSearch es true */}
-          {showSearch && (
-            <div className="ms-3">
-              <input
-                type="text"
-                placeholder="Buscar recetas..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="form-control"
-              />
-
-            {search && (
-              <ul className="list-group mt-2">
-                {recetaFiltrada.length > 0 ? (
-                  recetaFiltrada.map((item) => (
-                    <li key={item.id} className="list-group-item">
-                      {item.name}
-                    </li>
-                  ))
-                ) : (
-                  <li className="list-group-item text-muted">No se encontraron resultados</li>
-                )}
-              </ul>
-            )}
-
-            </div>
-          )}
         </div>
       </div>
     </nav>
