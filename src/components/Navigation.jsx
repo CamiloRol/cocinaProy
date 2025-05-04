@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 
 export default function Navigation() {
+  const [showSearch, setShowSearch] = useState(false);
+  const [search, setSearch] = useState("");
+  const [recipes, setRecipes] = useState([]);
+
+  // Traer las recetas desde la base de datos
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users"); // Poner nuestra base de datos real
+        const data = await response.json();
+        setRecipes(data);
+      } catch (error) {
+        console.error("Error buscando receta:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  const recetaFiltrada = recipes.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+
+  const handleSearchClick = () => {
+    setShowSearch(!showSearch);
+    setSearch(""); // Limpiar el input 
+  };
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light custom-nav">
       <div className="container">
@@ -170,11 +200,39 @@ export default function Navigation() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to={"/Search"} className="nav-link" href="#">
+              <button onClick={handleSearchClick} className="nav-link nav-link btn btn-link p-0 border-0" href="#">
                 <i className="bi bi-search"></i>
-              </Link>
+              </button>
             </li>
           </ul>
+
+          {/* Mostrar input solo si showSearch es true */}
+          {showSearch && (
+            <div className="ms-3">
+              <input
+                type="text"
+                placeholder="Buscar recetas..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="form-control"
+              />
+
+            {search && (
+              <ul className="list-group mt-2">
+                {recetaFiltrada.length > 0 ? (
+                  recetaFiltrada.map((item) => (
+                    <li key={item.id} className="list-group-item">
+                      {item.name}
+                    </li>
+                  ))
+                ) : (
+                  <li className="list-group-item text-muted">No se encontraron resultados</li>
+                )}
+              </ul>
+            )}
+
+            </div>
+          )}
         </div>
       </div>
     </nav>
