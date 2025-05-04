@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
+import SearchComponent from "./SearchComponent";
 
 export default function Navigation() {
 
@@ -196,19 +197,7 @@ export default function Navigation() {
                 CONTACTO
               </Link>
             </li>
-            <li className="nav-item">
-              <form
-                onSubmit = {(e) => {
-                  e.preventDefault();
-                  let receta = e.target.search.value;
-                  console.log("Buscando receta:", receta);
-                }}
-              >
-                <input type="text" autoComplete="off" name="search"/>
-                <button>🔍</button>
-              </form>
-              
-            </li>
+            <SearchComponent />
           </ul>
         </div>
       </div>
