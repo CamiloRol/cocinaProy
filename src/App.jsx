@@ -5,18 +5,19 @@ import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import RecipesPage from "./pages/RecipesPage";
 import RecipesDetails from "./pages/RecipesDetails";
-import './styles.css'; 
+import "./styles.css";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={ <HomePage/> }/>
-        <Route path='/About' element={ <AboutPAge/> }/>
-        <Route path='/Contact' element={ <ContactPage/> }/>
-        <Route path='/Recipes' element={ <RecipesPage/> }/>
-        <Route path='/Recipes/:id' element={ <RecipesDetails/> }/>
-        <Route path='*' element={ <NotFound/> }/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/About" element={<AboutPAge />} />
+        <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/Recipes" element={<RecipesPage />} />
+        <Route path="/Recipes/:id" element={<RecipesDetails />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
