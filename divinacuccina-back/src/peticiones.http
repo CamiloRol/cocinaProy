@@ -4,6 +4,9 @@ get http://localhost:3000/api/recipes
 ###peticion get - una Receta con sus imagenes
 get http://localhost:3000/api/recipes/3
 
+###peticion get - recetas con sus imagenes y que cumplan con la busqueda
+get http://localhost:3000/api/?q=arroz
+
 ###peticion post - crear una Receta
 Post http://localhost:3000/api/recipes
 Content-Type: application/json

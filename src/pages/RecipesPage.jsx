@@ -10,7 +10,7 @@ export default function RecipesPage() {
       <Header />
       <Navigation />
       <Information />
-      <Recipes />
+      <Recipes /> 
       <Footer />
     </>
   )

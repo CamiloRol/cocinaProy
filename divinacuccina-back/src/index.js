@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Usar rutas
-app.use('/api/Recipes', recipesRoutes);
+app.use('/api/recipes', recipesRoutes);
 //app.use('/api/usuarios', usuariosRoutes);
 //app.use('/api/reservas', reservasRoutes);
 //app.use('/api/pagos', pagosRoutes);

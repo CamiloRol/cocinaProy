@@ -46,6 +46,47 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Obtener una habitación por ID
+router.get('/', async (req, res) => {
+  try {
+    const termino = req.query.q; // El texto del buscador: /?q=pasta
+
+    if (!termino) {
+      return res.status(400).json({ error: 'Parámetro de búsqueda "q" es requerido' });
+    }
+
+    const [rows] = await db.query(
+      'SELECT * FROM recipes WHERE name_recipe LIKE ?',
+      [`%${termino}%`] // Búsqueda parcial
+    );
+
+    if (rows.length === 0) {
+      return res.status(404).json({ mensaje: 'No se encontraron recetas asociadas' });
+    }
+
+    // Obtener imágenes para cada receta
+    const recetasConImagenes = await Promise.all(
+      rows.map(async (receta) => {
+        const [imagenes] = await db.query(
+          'SELECT url_imagen FROM imagenes_recipes WHERE recipe_id = ?',
+          [receta.id]
+        );
+        return {
+          ...receta,
+          imagenes: imagenes.map(img => img.url_imagen)
+        };
+      })
+    );
+
+    res.json(recetasConImagenes);
+
+  } catch (error) {
+    console.error('Error al hacer búsqueda:', error);
+    res.status(500).json({ error: 'Error al realizar la búsqueda de recetas' });
+  }
+});
+
+
 // Crear una nueva habitación
 router.post('/', async (req, res) => {
   const { name_recipe, tipo, description, price, time, status } = req.body;
