@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import SearchComponent from "./SearchComponent";
+import Loginbuttom from "./loginbuttom";
 
 export default function Navigation() {
 
@@ -198,6 +199,7 @@ export default function Navigation() {
               </Link>
             </li>
             <SearchComponent />
+            <Loginbuttom />
           </ul>
         </div>
       </div>
