@@ -7,7 +7,7 @@ export default function SearchComponent() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch("https://jsonplaceholder.typicode.com/users"); // Poner nuestra base de datos real
+                const response = await fetch("http://localhost:3000/api/recipes/buscar?termino="); // Poner nuestra base de datos real
                 const data = await response.json();
                 setRecetas(data);
             } catch (error) {
