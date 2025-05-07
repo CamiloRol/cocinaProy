@@ -29,35 +29,33 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-// Obtener una habitación por ID
-router.get('/:id', async (req, res) => {
+// Crear una nueva habitación
+router.post('/', async (req, res) => {
+  const { name_recipe, tipo, description, price, time, status } = req.body;
   try {
-    const [rows] = await db.query('SELECT * FROM recipes WHERE id = ?', [req.params.id]);
-    if (rows.length === 0) return res.status(404).json({ error: 'Recipe not found' });
-    const [images] = await db.query('SELECT url_imagen FROM imagenes_recipes WHERE recipe_id = ?', [req.params.id]);
-    res.json({
-      ...rows[0],
-      imagenes: images.map(img => img.url_imagen)
-    });
+    const [result] = await db.query(
+      'INSERT INTO recipes (name_recipe, tipo, description, price, time, status) VALUES (?, ?, ?, ?, ?, ?)',
+      [name_recipe, tipo, description, price, time, status]
+    );
+    res.json({ id: result.insertId, message: 'Recipe successfully created' });
   } catch (error) {
-    console.error('Error to GET /recipes:', error);
-    res.status(500).json({ error: 'Error to GET Recipes' });
+    res.status(500).json({ error: 'Error on recipe insert' });
   }
 });
 
-// Obtener una habitación por ID
-router.get('/', async (req, res) => {
+// Obtener una receta por busqueda
+router.get('/buscar', async (req, res) => {
   try {
-    const termino = req.query.q; // El texto del buscador: /?q=pasta
+    console.log('Recibida petición de búsqueda:', req.query.termino);
+    const { termino } = req.query;
 
     if (!termino) {
-      return res.status(400).json({ error: 'Parámetro de búsqueda "q" es requerido' });
+      return res.status(400).json({ error: 'Parámetro de búsqueda "termino" es requerido' });
     }
 
     const [rows] = await db.query(
       'SELECT * FROM recipes WHERE name_recipe LIKE ?',
-      [`%${termino}%`] // Búsqueda parcial
+      [`%${termino}%`]
     );
 
     if (rows.length === 0) {
@@ -87,17 +85,19 @@ router.get('/', async (req, res) => {
 });
 
 
-// Crear una nueva habitación
-router.post('/', async (req, res) => {
-  const { name_recipe, tipo, description, price, time, status } = req.body;
+// Obtener una habitación por ID
+router.get('/:id', async (req, res) => {
   try {
-    const [result] = await db.query(
-      'INSERT INTO recipes (name_recipe, tipo, description, price, time, status) VALUES (?, ?, ?, ?, ?, ?)',
-      [name_recipe, tipo, description, price, time, status]
-    );
-    res.json({ id: result.insertId, message: 'Recipe successfully created' });
+    const [rows] = await db.query('SELECT * FROM recipes WHERE id = ?', [req.params.id]);
+    if (rows.length === 0) return res.status(404).json({ error: 'Recipe not found' });
+    const [images] = await db.query('SELECT url_imagen FROM imagenes_recipes WHERE recipe_id = ?', [req.params.id]);
+    res.json({
+      ...rows[0],
+      imagenes: images.map(img => img.url_imagen)
+    });
   } catch (error) {
-    res.status(500).json({ error: 'Error on recipe insert' });
+    console.error('Error to GET /recipes:', error);
+    res.status(500).json({ error: 'Error to GET Recipes' });
   }
 });
 

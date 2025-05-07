@@ -5,7 +5,7 @@ get http://localhost:3000/api/recipes
 get http://localhost:3000/api/recipes/3
 
 ###peticion get - recetas con sus imagenes y que cumplan con la busqueda
-get http://localhost:3000/api/?q=arroz
+get http://localhost:3000/api/recipes/buscar?termino=flan
 
 ###peticion post - crear una Receta
 Post http://localhost:3000/api/recipes
@@ -42,11 +42,22 @@ Content-Type: application/json
     "id": 1
 }
 
-###peticion post - verificar un usuario
-Post http://localhost/apiCrud/login
+###peticion post - Login
+POST http://localhost:3001/api/auth/login
 Content-Type: application/json
 
 {
-    "usuario": "admin",
-    "contrasena": "admin12345"
+    "correo":"juan@chef.com",
+    "password":"chef123"
+}
+
+###peticion post - Register
+POST http://localhost:3001/api/auth/register
+Content-Type: application/json
+
+{
+    "nombre":"rascael Bermudez",
+    "correo":"rasca@chef.com",
+    "password":"$2b$10$JTzDdNKi8yhnEdrh0q4xKe6o/DeTmTXaJ10j7aaZ3/Xli1qqx1DW2",
+    "rol":"chef"
 }
