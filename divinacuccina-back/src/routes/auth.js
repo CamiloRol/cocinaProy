@@ -8,17 +8,18 @@ const SECRET_KEY = 'clave123232'; // clave secreta
 
 // Registro de usuario
 router.post('/register', async (req, res) => {
-  const { nombre, correo, password, rol } = req.body;
+  const { "us-name": nombre, email, password, rol } = req.body;
 
   try {
-    const [existe] = await db.execute('SELECT id FROM users WHERE correo = ?', [correo]);
+    const [existe] = await db.execute('SELECT id FROM users WHERE email = ?', [email]);
     if (existe.length > 0) {
       return res.status(400).json({ error: 'Este correo ya está registrado' });
     }else{
+        console.log(nombre, email, password, rol);
         const hashedPassword = await bcrypt.hash(password, 10);
         await db.execute(
-          'INSERT INTO users (nombre, correo, password, rol) VALUES (?, ?, ?, ?)',
-          [nombre, correo, hashedPassword, rol || 'cliente']
+          'INSERT INTO users (us-name, email, password, rol) VALUES (?, ?, ?, ?)',
+          [nombre, email, hashedPassword, rol || 'cliente']
         );
     
         res.status(201).json({ message: 'Usuario registrado correctamente' });
@@ -33,17 +34,19 @@ router.post('/register', async (req, res) => {
 // Login de usuario
 router.post('/login', async (req, res) => {
 //hash manual de contraseña
-//     const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 // (async () => {
-//   const hash = await bcrypt.hash('admin123', 10);
-//   console.log(hash);
-// })();
+//      const hash = await bcrypt.hash('pass123', 10);
+//      console.log(hash);
+//  })();
 
-  const { correo, password } = req.body;
+  const { email, password } = req.body;
+
+  console.log("Login - Datos recibidos:", { email, password });
 
   try {
-    const [rows] = await db.execute('SELECT * FROM users WHERE correo = ?', [correo]);
+    const [rows] = await db.execute('SELECT * FROM users WHERE email = ?', [email]);
 
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Usuario no encontrado' });
@@ -57,7 +60,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Contraseña incorrecta' });
     }
 
-    const token = jwt.sign({ id: user.id, rol: user.rol }, SECRET_KEY, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id, nombre: user.nombre,  rol: user.rol }, SECRET_KEY, { expiresIn: '1h' });
 
     res.json({ message: 'Login exitoso', token, user: { id: user.id, nombre: user.nombre, rol: user.rol } });
   } catch (error) {

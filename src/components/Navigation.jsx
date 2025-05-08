@@ -1,36 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import SearchComponent from "./SearchComponent";
 import Loginbuttom from "./loginbuttom";
 
 export default function Navigation() {
-
-  // Traer las recetas desde la base de datos
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("https://jsonplaceholder.typicode.com/users"); // Poner nuestra base de datos real
-  //       const data = await response.json();
-  //       setRecipes(data);
-  //     } catch (error) {
-  //       console.error("Error buscando receta:", error);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, []);
-
-  // const recetaFiltrada = recipes.filter((item) =>
-  //   item.name.toLowerCase().includes(search.toLowerCase())
-  // );
-
-
-  // const handleSearchClick = () => {
-  //   setShowSearch(!showSearch);
-  //   setSearch(""); // Limpiar el input 
-  // };
-
-
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-light custom-nav">
       <div className="container">

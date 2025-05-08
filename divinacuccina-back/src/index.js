@@ -4,7 +4,7 @@ require('dotenv').config();
 
 // Importar rutas
 const recipesRoutes = require('./routes/recipes');
-//const usuariosRoutes = require('./src/routes/usuarios');
+const usuariosRoutes = require('./routes/auth');
 //const reservasRoutes = require('./src/routes/reservas');
 //const pagosRoutes = require('./src/routes/pagos');
 
@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Usar rutas
 app.use('/api/recipes', recipesRoutes);
-//app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/auth', usuariosRoutes);
 //app.use('/api/reservas', reservasRoutes);
 //app.use('/api/pagos', pagosRoutes);
 

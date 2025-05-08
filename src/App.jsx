@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
 import "./styles.css";
+import BusquedaPage from "./pages/BusquedaPage";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/Recipes/:id" element={<RecipesDetails />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Register" element={<RegisterPage />} />
-       
+        <Route path="/Busqueda" element={<BusquedaPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

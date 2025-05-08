@@ -1,39 +1,30 @@
+import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
-import {useState, useEffect} from "react";
 export default function SearchComponent() {
-    let [recetas, setRecetas] = useState([]);
+    const [termino, setTermino] = useState("");
+    const navigate = useNavigate();
 
-     //Traer las recetas desde la base de datos
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch("http://localhost:3000/api/recipes/buscar?termino="); // Poner nuestra base de datos real
-                const data = await response.json();
-                setRecetas(data);
-            } catch (error) {
-                console.error("Error buscando receta:", error);
-            }
-            }
-
-            fetchData();
-        }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!termino.trim()) return;
+    navigate(`/Busqueda?termino=${encodeURIComponent(termino)}`);
+  };
 
   return (
     <>
     <li className="nav-item">
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          let receta = setRecetas(e.target.search.value);
-          console.log("Buscando receta:", receta);
-          console.log("Recetas:", recetas);
-        }}
+        onSubmit={
+          handleSubmit}
         className="d-flex align-items-center"
       >
         <input
           type="text"
           autoComplete="off"
           name="search"
+          value={termino}
+          onChange={(e) => setTermino(e.target.value)}
           placeholder="Buscar receta..."
           style={{
             backgroundColor: '#ffff',

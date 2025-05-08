@@ -1,7 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.error || "Error al iniciar sesión");
+        return;
+      }
+
+      // Guardar el token en localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // Redirigir al home o a un dashboard
+      navigate("/");
+    } catch (error) {
+      console.error("Error en login:", error);
+      alert("Error al iniciar sesión");
+    }
+  };
+
   return (
     <div
       className="d-flex justify-content-center align-items-center min-vh-100"
@@ -30,7 +65,7 @@ export default function Login() {
           Inicia sesión
         </h2>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label text-white">
               Email
@@ -39,6 +74,8 @@ export default function Login() {
               type="email"
               className="form-control"
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="correo@ejemplo.com"
               style={{
                 backgroundColor: '#2e2e2e',
@@ -57,6 +94,8 @@ export default function Login() {
               type="password"
               className="form-control"
               id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="********"
               style={{
                 backgroundColor: '#2e2e2e',
