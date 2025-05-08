@@ -13,6 +13,7 @@
     "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.3",
     "express": "^5.1.0",
+    "motion": "^12.10.4",
     "npm": "^11.3.0",
     "postcss-cli": "^11.0.1",
     "react": "^19.0.0",
