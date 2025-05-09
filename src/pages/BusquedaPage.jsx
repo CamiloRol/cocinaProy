@@ -26,37 +26,77 @@ export default function BusquedaPage() {
       }, [termino]);
   return (
     <>
-      <Header />
-      <Navigation />
-      <div className="container mt-2">
-        <Information />
-        <div className="row">
-          <div className="col-lg-8">
-            <div>
-                <h2>Resultados para: "{termino}"</h2>
-                {recetas.length === 0 ? (
-                    <p>No se encontraron recetas</p>
-                ) : (
-                    recetas.map((receta) => (
-                    <div key={receta.id}>
-                        <h4>{receta.name_recipe}</h4>
-                        {receta.imagenes?.map((url, i) => (
-                        <img key={i} src={url} width={150} alt="Receta" />
-                        ))}
-                        <span>{receta.time}</span>
-                        <p>{receta.description}</p>
-                        <h2>${receta.price}</h2>
+  <Header />
+  <Navigation />
+
+  <div className="container mt-4">
+    <Information />
+
+    <div className="row">
+      <div className="col-lg-8 mx-auto">
+        <h2 className="text-center fw-bold mb-4" style={{ color: "#FFA07A" }}>
+          Resultados para: "{termino}"
+        </h2>
+
+        {recetas.length === 0 ? (
+          <p className="text-center text-muted fs-5">No se encontraron recetas</p>
+        ) : (
+          recetas.map((receta) => (
+            <section key={receta.id} className="mb-5">
+              <div className="card shadow rounded-4 border-0">
+                <div className="card-body p-4">
+                  <h3 className="text-center fw-bold mb-3" style={{ color: "#FFA07A" }}>
+                    {receta.name_recipe}
+                  </h3>
+                  <p className="text-center text-muted fs-5 mb-4">{receta.description}</p>
+
+                  <div className="row text-center mb-4">
+                    <div className="col-md-4">
+                      <p>
+                        <strong style={{ color: "#FFA07A" }}>Tipo:</strong><br />
+                        {receta.tipo || "N/A"}
+                      </p>
                     </div>
-                    ))
-                )}
-            </div>
-          </div>
-          <Content />
-        </div>
-        <AditionalText />
+                    <div className="col-md-4">
+                      <p>
+                        <strong style={{ color: "#FFA07A" }}>Precio:</strong><br />
+                        ${receta.price}
+                      </p>
+                    </div>
+                    <div className="col-md-4">
+                      <p>
+                        <strong style={{ color: "#FFA07A" }}>Tiempo:</strong><br />
+                        {receta.time} min
+                      </p>
+                    </div>
+                  </div>
+
+                  {receta.imagenes?.length > 0 && (
+                    <div className="text-center" id="receipecontainer">
+                      <img
+                        src={receta.imagenes[0]}
+                        alt="Receta"
+                        className="img-fluid rounded-3 shadow-sm"
+                        style={{ maxHeight: "600px", objectFit: "cover", width: "100%" }}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </section>
+          ))
+        )}
       </div>
-      <Below />
-      <Footer />
-    </>
+
+      <Content />
+    </div>
+
+    <AditionalText />
+  </div>
+
+  <Below />
+  <Footer />
+</>
+
   )
 }
